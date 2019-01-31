@@ -14,5 +14,5 @@ export interface IOptions extends IModuleOptions {
 
 }
 
-export {ViewModule , view}
+export {ViewModule , view, ViewEngines}
 
