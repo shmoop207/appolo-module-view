@@ -1,26 +1,26 @@
 {
   "name": "@appolo/view",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "",
   "keywords": [
     "appolo",
-    "logger"
+    "view"
   ],
   "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@types/consolidate": "0.0.34",
-    "@types/supertest": "^2.0.7",
     "appolo": "^6.0.58",
     "appolo-cache": "^6.0.6",
     "consolidate": "^0.15.1",
-    "lodash": "^4.17.11",
-    "nunjucks": "^3.1.7",
-    "supertest": "^3.4.2"
+    "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "nunjucks": "^3.1.7",
+    "supertest": "^3.4.2",
+    "@types/consolidate": "0.0.34",
+    "@types/supertest": "^2.0.7",
     "@types/chai": "^4.1.7",
     "@types/lodash": "^4.14.119",
     "@types/mocha": "^5.2.5",
@@ -33,10 +33,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shmoop207/appolo-module-logger.git"
+    "url": "https://github.com/shmoop207/appolo-module-view.git"
   },
   "author": {
     "name": "roman svichar"
   },
-  "license": ""
+  "license": "MIT"
 }
