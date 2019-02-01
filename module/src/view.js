@@ -11,13 +11,13 @@ let View = class View {
     init() {
         this._cache = new appolo_cache_1.Cache({ maxSize: this.moduleOptions.maxPathCache });
         let $self = this;
-        appolo_1.Response.prototype.render = function (path, params) {
+        appolo_1.Util.decorateResponse("render", function (path, params) {
             if (arguments.length == 1 && typeof path !== "string") {
                 params = path;
                 path = "";
             }
             $self._responseRender(this, path, params);
-        };
+        });
     }
     _responseRender(res, path, params) {
         res.sending = true;
