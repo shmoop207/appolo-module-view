@@ -1,7 +1,7 @@
 {
   "name": "@appolo/view",
   "version": "0.0.6",
-  "description": "",
+  "description": "appolo view module",
   "keywords": [
     "appolo",
     "view"
