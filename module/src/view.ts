@@ -34,12 +34,6 @@ export class View {
 
         res.sending = true;
 
-        let controllerDir = Path.parse(res.req.route.definition.path).dir;
-
-        if (!path && res.req.route) {
-            path = res.req.route.actionName;
-        }
-
         let paths = [];
 
 
@@ -48,15 +42,26 @@ export class View {
         }
 
         if (res.req.route) {
-            paths.push(Path.resolve(res.req.app.options.root, controllerDir, path));
-            paths.push(Path.resolve(res.req.app.options.root, controllerDir, "views", path));
+
+            if (!path) {
+                path = res.req.route.actionName;
+            }
+
+            if (res.req.route.definition) {
+                let controllerDir = Path.parse(res.req.route.definition.path).dir;
+                paths.push(Path.resolve(res.req.app.options.root, controllerDir, path));
+                paths.push(Path.resolve(res.req.app.options.root, controllerDir, "views", path));
+            }
         }
 
         paths.push(path);
 
         return this.render(paths, params, res)
             .then((str: string) => res.send(str))
-            .catch((e) => res.req.next(e))
+            .catch((e) => {
+                res.sending = false;
+                res.req.next(e)
+            })
     }
 
     public async render(paths: string[], params: any, res: IResponse): Promise<string> {

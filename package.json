@@ -1,6 +1,6 @@
 {
   "name": "@appolo/view",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "appolo view module",
   "keywords": [
     "appolo",
@@ -11,7 +11,7 @@
     "access": "public"
   },
   "dependencies": {
-    "appolo": "^6.0.59",
+    "appolo": "^6.0.60",
     "appolo-cache": "^6.0.6",
     "consolidate": "^0.15.1",
     "lodash": "^4.17.11"

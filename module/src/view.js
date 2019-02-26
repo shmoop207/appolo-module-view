@@ -21,22 +21,27 @@ let View = class View {
     }
     _responseRender(res, path, params) {
         res.sending = true;
-        let controllerDir = Path.parse(res.req.route.definition.path).dir;
-        if (!path && res.req.route) {
-            path = res.req.route.actionName;
-        }
         let paths = [];
         if (!res.hasHeader("Content-Type")) {
             res.setHeader("Content-Type", "text/html;charset=utf-8");
         }
         if (res.req.route) {
-            paths.push(Path.resolve(res.req.app.options.root, controllerDir, path));
-            paths.push(Path.resolve(res.req.app.options.root, controllerDir, "views", path));
+            if (!path) {
+                path = res.req.route.actionName;
+            }
+            if (res.req.route.definition) {
+                let controllerDir = Path.parse(res.req.route.definition.path).dir;
+                paths.push(Path.resolve(res.req.app.options.root, controllerDir, path));
+                paths.push(Path.resolve(res.req.app.options.root, controllerDir, "views", path));
+            }
         }
         paths.push(path);
         return this.render(paths, params, res)
             .then((str) => res.send(str))
-            .catch((e) => res.req.next(e));
+            .catch((e) => {
+            res.sending = false;
+            res.req.next(e);
+        });
     }
     async render(paths, params, res) {
         try {
