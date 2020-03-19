@@ -41,7 +41,7 @@ describe("socket module Spec", function () {
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');
         res.text.should.be.eq("hello2 11");
     });
-    it.only('should render view with 404', async () => {
+    it('should render view with 404', async () => {
         let res = await request(app.handle)
             .get('/test/view333333');
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');

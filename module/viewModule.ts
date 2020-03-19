@@ -5,7 +5,6 @@ import {ViewEngines} from "./src/enums";
 @module()
 export class ViewModule extends Module<IOptions> {
 
-
     protected readonly Defaults: Partial<IOptions> = {
         viewFolder: "views",
         viewCache: true,

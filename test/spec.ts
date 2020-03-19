@@ -67,7 +67,7 @@ describe("socket module Spec", function () {
         res.text.should.be.eq("hello2 11");
     });
 
-    it.only('should render view with 404', async () => {
+    it('should render view with 404', async () => {
 
         let res = await request(app.handle)
             .get('/test/view333333');
