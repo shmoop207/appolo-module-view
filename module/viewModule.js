@@ -1,12 +1,13 @@
 "use strict";
 var ViewModule_1;
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ViewModule = void 0;
 const tslib_1 = require("tslib");
-const index_1 = require("appolo/index");
+const engine_1 = require("@appolo/engine");
 const enums_1 = require("./src/enums");
-let ViewModule = ViewModule_1 = class ViewModule extends index_1.Module {
-    constructor(opts) {
-        super(opts);
+let ViewModule = ViewModule_1 = class ViewModule extends engine_1.Module {
+    constructor() {
+        super(...arguments);
         this.Defaults = {
             viewFolder: "views",
             viewCache: true,
@@ -15,12 +16,12 @@ let ViewModule = ViewModule_1 = class ViewModule extends index_1.Module {
             maxPathCache: 1000,
         };
     }
-    static for(opts) {
-        return new ViewModule_1(opts);
+    static for(options, moduleOptions = {}) {
+        return { module: ViewModule_1, options, moduleOptions };
     }
 };
 ViewModule = ViewModule_1 = tslib_1.__decorate([
-    index_1.module()
+    engine_1.module()
 ], ViewModule);
 exports.ViewModule = ViewModule;
 //# sourceMappingURL=viewModule.js.map

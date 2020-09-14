@@ -1,4 +1,4 @@
-import {Module, module} from "appolo/index";
+import {Module, module,IModuleParams,IModuleOptions} from "@appolo/engine";
 import {IOptions} from "../index";
 import {ViewEngines} from "./src/enums";
 
@@ -14,11 +14,8 @@ export class ViewModule extends Module<IOptions> {
     };
 
 
-    constructor(opts?: IOptions) {
-        super(opts);
-    }
 
-    public static for(opts?: IOptions):ViewModule{
-        return new ViewModule(opts)
+    public static for(options: IOptions, moduleOptions: IModuleOptions = {}): IModuleParams {
+        return {module:ViewModule,options,moduleOptions}
     }
 }

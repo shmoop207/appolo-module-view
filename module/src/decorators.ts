@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import {IRequest, IResponse} from 'appolo';
+import {IRequest, IResponse} from '@appolo/route';
 
 
 export function view(path?: string) {

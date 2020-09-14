@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.view = void 0;
 require("reflect-metadata");
 function view(path) {
     return function (target, propertyKey, descriptor) {

@@ -1,6 +1,6 @@
 "use strict";
-import {controller, get, IResponse, StaticController} from 'appolo';
-import {view} from "../../../../index";
+import {controller, get, IResponse, StaticController} from '@appolo/route';
+import {view} from "../../../../../index";
 
 @controller()
 export class ViewController extends StaticController {

@@ -1,5 +1,7 @@
 "use strict";
-import {define, HttpError, initMethod, inject, IResponse, singleton, Util as AppoloUtil} from 'appolo';
+import { HttpError, IResponse} from '@appolo/route';
+import { Discovery} from '@appolo/core';
+import {define, initMethod, inject, singleton} from '@appolo/inject';
 import {IOptions} from "../../index";
 import {Util} from "./util";
 import {Cache} from "appolo-cache";
@@ -19,7 +21,7 @@ export class View {
 
         this._cache = new Cache({maxSize: this.moduleOptions.maxPathCache});
         let $self = this;
-        AppoloUtil.decorateResponse("render", function (path: string, params?: any) {
+        Discovery.decorateResponse("render", function (path: string, params?: any) {
 
             if (arguments.length == 1 && typeof path !== "string") {
                 params = path;
