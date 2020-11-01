@@ -93,7 +93,7 @@ tslib_1.__decorate([
     inject_1.inject()
 ], View.prototype, "moduleOptions", void 0);
 tslib_1.__decorate([
-    inject_1.initMethod()
+    inject_1.init()
 ], View.prototype, "init", null);
 View = tslib_1.__decorate([
     inject_1.define(),

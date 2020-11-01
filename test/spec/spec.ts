@@ -13,11 +13,11 @@ describe("socket module Spec", function () {
 
         app = createApp({root: process.cwd() + '/test/mock/' , environment: "production", port: 8182});
 
-        app.error((err,req,res,next)=>{
+        app.route.error((err,req,res,next)=>{
             res.render("notfound")
         })
 
-        await app.module(ViewModule.for({viewFolder:process.cwd() + '/test/mock/src/views'}));
+        app.module.use(ViewModule.for({viewFolder:process.cwd() + '/test/mock/src/views'}));
 
         await app.launch();
 
@@ -29,7 +29,7 @@ describe("socket module Spec", function () {
 
     it('should render view', async () => {
 
-        let res = await request(app.handle)
+        let res = await request(app.route.handle)
             .get('/test/view?test=11');
 
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');
@@ -39,7 +39,7 @@ describe("socket module Spec", function () {
 
     it('should render view with path', async () => {
 
-        let res = await request(app.handle)
+        let res = await request(app.route.handle)
             .get('/test/view2?test=11');
 
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');
@@ -49,7 +49,7 @@ describe("socket module Spec", function () {
 
     it('should render view with decorator', async () => {
 
-        let res = await request(app.handle)
+        let res = await request(app.route.handle)
             .get('/test/view3?test=11');
 
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');
@@ -59,7 +59,7 @@ describe("socket module Spec", function () {
 
     it('should render view with decorator', async () => {
 
-        let res = await request(app.handle)
+        let res = await request(app.route.handle)
             .get('/test/view3?test=11');
 
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');
@@ -69,7 +69,7 @@ describe("socket module Spec", function () {
 
     it('should render view with 404', async () => {
 
-        let res = await request(app.handle)
+        let res = await request(app.route.handle)
             .get('/test/view333333');
 
         res.header["content-type"].should.be.eq('text/html;charset=utf-8');

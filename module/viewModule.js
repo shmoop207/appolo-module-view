@@ -16,8 +16,8 @@ let ViewModule = ViewModule_1 = class ViewModule extends engine_1.Module {
             maxPathCache: 1000,
         };
     }
-    static for(options, moduleOptions = {}) {
-        return { module: ViewModule_1, options, moduleOptions };
+    static for(options) {
+        return { type: ViewModule_1, options };
     }
 };
 ViewModule = ViewModule_1 = tslib_1.__decorate([

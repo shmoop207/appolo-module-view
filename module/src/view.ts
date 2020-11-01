@@ -1,7 +1,7 @@
 "use strict";
 import { HttpError, IResponse} from '@appolo/route';
 import { Discovery} from '@appolo/core';
-import {define, initMethod, inject, singleton} from '@appolo/inject';
+import {define, init, inject, singleton} from '@appolo/inject';
 import {IOptions} from "../../index";
 import {Util} from "./util";
 import {Cache} from "appolo-cache";
@@ -16,7 +16,7 @@ export class View {
     private _cache: Cache<string, { path: string }>;
     @inject() private moduleOptions: IOptions;
 
-    @initMethod()
+    @init()
     private init() {
 
         this._cache = new Cache({maxSize: this.moduleOptions.maxPathCache});

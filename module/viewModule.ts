@@ -1,4 +1,4 @@
-import {Module, module,IModuleParams,IModuleOptions} from "@appolo/engine";
+import {Module, module, IModuleParams} from "@appolo/engine";
 import {IOptions} from "../index";
 import {ViewEngines} from "./src/enums";
 
@@ -14,8 +14,7 @@ export class ViewModule extends Module<IOptions> {
     };
 
 
-
-    public static for(options: IOptions, moduleOptions: IModuleOptions = {}): IModuleParams {
-        return {module:ViewModule,options,moduleOptions}
+    public static for(options: IOptions): IModuleParams {
+        return {type: ViewModule, options}
     }
 }
