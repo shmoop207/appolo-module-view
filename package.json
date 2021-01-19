@@ -1,6 +1,6 @@
 {
   "name": "@appolo/view",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "description": "appolo view module",
   "keywords": [
     "appolo",
@@ -14,7 +14,7 @@
     "test": "mocha test/spec/**/*.js"
   },
   "dependencies": {
-    "@appolo/core": "^8.0.5",
+    "@appolo/core": "^8.0.8",
     "appolo-cache": "^8.0.0",
     "consolidate": "^0.16.0"
   },
